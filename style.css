@@ -74,36 +74,31 @@ button {
 /* 공공재로서 조금 더 담백하게. */
 .l_wrapper {
   max-width: 1080px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 .article_wrapper {
-  padding: 92px 20px 100px;
-
   display: flex;
   flex-direction: column;
   gap: 100px;
+  padding: 92px 0 100px;
 }
 
 /* Component-Design */
-/* 가능하면 상위요소보단 특정 클래스의 추가를 통해 스타일 변화 */
-
+/* 가능하면 상위요소로 감싸기 보다 특정 클래스의 추가를 통해 스타일 변화 */
 .article {
-  --background-color: var(--color-white);
-
-  background-color: var(--background-color);
-
-  &#portfolio {
-    --background-color: var(--color-violet);
-  }
-  &#event {
-    --background-color: var(--color-seashell);
-  }
-}
-.article-header {
   --title-color: var(--color-white);
   --empasis-color: var(--color-orange);
   --discreption-color: var(--color-violet-light);
 
+  &.portfolio-article {
+    background-color: var(--color-violet);
+  }
+  &.event-article {
+    background-color: var(--color-seashell);
+  }
+}
+.article-header {
   display: flex;
   align-items: center;
 
@@ -277,13 +272,13 @@ button {
   }
 }
 
-& .card-list {
+.card-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 340px));
   justify-content: center;
   gap: 30px;
 }
-& .card.soldout {
+.card.soldout {
   & .card-cover .cover-img {
     /* soldout이라는 정보를 더 명확히 전달하고자 필터 추가. */
     filter: grayscale(100%);
@@ -328,7 +323,7 @@ button {
   }
 }
 
-& .card {
+.card {
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 20px rgb(var(--color-black-500-rgb) / 0.1);
