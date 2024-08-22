@@ -1,62 +1,11 @@
+## 멋쟁이 사자처럼 grid 실습 과제.
+
+### 피그마 주소
+
 https://www.figma.com/design/Yc3Vek0CDh5LAOY2qIGVoq/ZIGZAG/duplicate
 
-START YOUR
-PORTFOLIO
-PROJECT
+### 피드백
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-
-Rest
-Take a rest
-- It has survived not only five centuries.
-- Why do we use it?
-- Contrary to popular belief, Lorem Ipsum is not simply random text. It has root.
-
-Craft
-Build something
-- There are many variations of passages of Lorem Ipsum available.
-- If you are going to use a passage of Lorem Ipsum.
-- The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-
-Scrap
-Reference
-- Once is therefore always free form repetition, injected humor, or non-characterisic words etc.
-- Predefined chunks as necessary, making this the first true generator on the internet.
-- Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form.
-
-
-CALENDAR AND
-EVENT TOOLS.
-
-+ Add to Calendar
-
-===== 
-    HTML CSS JavaScript
------
-    Digital Workplace Experience
------
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
------
-    SOLDOUT
-===== 
-
-===== 
-    AR VR Headsets
------
-    Augmented World Expo 2022
------
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
------
-    + More People
-===== 
-
-===== 
-    Photoshop Illustrator
-----
-    Adobe Summit
-----
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.
-----
-    + More People
-===== 
-
+1. css nesting 기법을 너무 남발해 depth가 깊다. 공통 분모를 묶어서 밖으로 빼는것이 필요.
+2. l_wrapper와 같은 공공재는 최대한 담백하게 가져가는것이 좋다.
+3. root에 설정한 CSS Variables을 class에 따라 변경해주는 것으로 depth를 줄일 수 있다.
