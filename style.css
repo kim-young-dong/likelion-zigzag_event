@@ -1,0 +1,443 @@
+/*
+  font-family: "Montserrat", sans-serif;
+*/
+/* Reset */
+body,
+ul,
+p {
+  margin: unset;
+  padding: unset;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: unset;
+  font-weight: unset;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* CSS Variables */
+:root {
+  /* Color */
+  --color-white: #fff;
+  --color-gray-50: #eee;
+  /* --color-gray-50-rgb: #aaa; */
+  --color-gray-100: #999;
+  /* --color-gray-100-rgb: #999; */
+  --color-black-300: #333;
+  /* --color-black-300-rgb: #222; */
+  --color-black-400: #111;
+  /* --color-black-400-rgb: #111; */
+  --color-black-500: #000;
+  --color-black-500-rgb: 0 0 0;
+
+  --color-violet: #6230a2;
+  --color-violet-rgb: 98 48 162;
+  --color-violet-light: #c89dff;
+  --color-violet-extralight: #ebdbff;
+
+  --color-orange: #ff4500;
+  --color-orange-light: #f98173;
+
+  --color-seashell: #fff5ed;
+
+  /* Typography */
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
+}
+
+/* Layouts */
+/* 공공재로서 조금 더 담백하게. */
+.l_wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 92px 20px 100px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* Component-Design */
+/* 가능하면 상위요소보단 특정 클래스의 추가를 통해 스타일 변화 */
+/* & .article-header {
+  gap: 30px;
+
+  & .article-title {
+    color: var(--color-orange-light);
+    & .emphasis:after {
+      background-color: var(--color-white);
+    }
+  }
+} */
+.article {
+  --background-color: var(--color-white);
+
+  background-color: var(--background-color);
+
+  &#portfolio {
+    --background-color: var(--color-violet);
+  }
+  &#event {
+    --background-color: var(--color-seashell);
+  }
+}
+.article-header {
+  --title-color: var(--color-white);
+  --empasis-color: var(--color-orange);
+  --discreption-color: var(--color-violet-light);
+
+  display: flex;
+  align-items: center;
+
+  &.has-button {
+    justify-content: space-between;
+    gap: 30px;
+
+    --title-color: var(--color-orange-light);
+    --empasis-color: var(--color-white);
+  }
+  &.has-discription {
+    gap: 22px;
+  }
+
+  & .article-title {
+    flex-shrink: 0;
+    font-size: 4rem;
+    line-height: 1.1;
+
+    color: var(--title-color);
+
+    & .emphasis {
+      width: fit-content;
+      font-weight: bold;
+      position: relative;
+      & strong {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      &:after {
+        content: " ";
+
+        width: 100%;
+        height: 26px;
+
+        position: absolute;
+        bottom: -2px;
+
+        background-color: var(--empasis-color);
+      }
+    }
+  }
+
+  & .article-discreption {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    max-width: 582px;
+
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: var(--discreption-color);
+    &:before {
+      flex-shrink: 0;
+      content: " ";
+      display: block;
+      width: 90px;
+      height: 1px;
+      background-color: var(--discreption-color);
+    }
+  }
+
+  & .button {
+    padding: 0 14px;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 4.4rem;
+    color: var(--color-white);
+
+    background-color: var(--color-orange);
+    border-radius: 4px;
+    border-bottom: 4px solid rgb(var(--color-black-500-rgb) / 0.1);
+  }
+}
+
+.panel-list {
+  display: grid;
+  grid-auto-rows: minmax(150px, 1fr);
+  gap: 30px;
+}
+
+.panel-item {
+  display: flex;
+  background-color: var(--color-white);
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  & .panel-cover {
+    flex-basis: 280px;
+    flex-shrink: 0;
+    position: relative;
+
+    aspect-ratio: 280 / 148;
+    font-size: 3.2rem;
+    color: var(--color-white);
+
+    & .bg-filter {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(
+        rgb(var(--color-violet-rgb) / 0.5),
+        rgb(var(--color-violet-rgb) / 0.5)
+      );
+    }
+    & .cover-img {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      object-fit: cover;
+    }
+  }
+
+  & .panel-content {
+    flex-grow: 1;
+    padding: 16px 22px 20px;
+
+    & .content-title {
+      margin-bottom: 14px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--color-violet);
+    }
+
+    & .content-list {
+      flex-grow: 1;
+      /* display: flex;
+      flex-direction: column;
+      gap: 12px; */
+
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-black-400);
+
+      & li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      & li + li {
+        margin-top: 12px;
+      }
+
+      /* strong tag와 같은 태그도 flex-item이 되므로 그것까지 생각 */
+      & li:before {
+        flex-shrink: 0;
+        content: " ";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        /* margin-right: 14px; */
+
+        background-color: var(--color-violet-light);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+& .card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 340px));
+  justify-content: center;
+  gap: 30px;
+}
+& .card.soldout {
+  & .card-cover .cover-img {
+    /* soldout이라는 정보를 더 명확히 전달하고자 필터 추가. */
+    filter: grayscale(100%);
+  }
+  & .card-cover .badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+  }
+  & .card-cover:before {
+    content: "SOLD OUT";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--color-white);
+    background-color: var(--color-black-500);
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+  /* & .card-cover:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+
+    width: 110px;
+    height: 110px;
+
+    background-image: url("./images/badge.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  } */
+  & .card-content {
+    background-color: var(--color-gray-50);
+    opacity: 0.5;
+  }
+}
+
+& .card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgb(var(--color-black-500-rgb) / 0.1);
+
+  & .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px 0;
+    background-color: var(--color-white);
+  }
+
+  & .card-cover {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-bottom: 4px solid var(--color-black-400);
+  }
+
+  & .card-header {
+    & .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    & .badge {
+      padding: 2px 12px;
+
+      font-size: 1.4rem;
+      font-weight: sremibold;
+      color: var(--color-violet);
+
+      background-color: var(--color-violet-extralight);
+      border-radius: 12px;
+    }
+    & .card-title {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: var(--color-black-300);
+    }
+  }
+
+  & .card-discreption {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2.2rem;
+    color: var(--color-black-400);
+  }
+
+  & .card-footer {
+    height: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 12px 0;
+    margin-right: -20px;
+
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-gray-100);
+
+    border-top: 4px solid var(--color-gray-50);
+
+    & span {
+      display: inline-block;
+      height: 38px;
+    }
+  }
+
+  & .member-list {
+    display: flex;
+    & .member {
+      width: 30px;
+      height: 30px;
+      margin-right: -8px;
+
+      border-radius: 50%;
+      border: 4px solid var(--color-white);
+      overflow: hidden;
+    }
+    & .member:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .article-header.has-discription,
+  .article-header.has-button {
+    flex-direction: column;
+    align-items: start;
+
+    & .article-discreption:before {
+      display: none;
+    }
+  }
+  .panel-list .panel-item {
+    flex-direction: column;
+  }
+  .panel-item .panel-cover {
+    flex-basis: auto;
+  }
+}
