@@ -75,6 +75,8 @@ button {
 .l_wrapper {
   max-width: 1080px;
   margin: 0 auto;
+}
+.article_wrapper {
   padding: 92px 20px 100px;
 
   display: flex;
@@ -84,16 +86,7 @@ button {
 
 /* Component-Design */
 /* 가능하면 상위요소보단 특정 클래스의 추가를 통해 스타일 변화 */
-/* & .article-header {
-  gap: 30px;
 
-  & .article-title {
-    color: var(--color-orange-light);
-    & .emphasis:after {
-      background-color: var(--color-white);
-    }
-  }
-} */
 .article {
   --background-color: var(--color-white);
 
